@@ -33,7 +33,7 @@ install_button.click()
 
 # Ожидаем, пока кнопка "Add extension" станет доступной
 add_extension_button = WebDriverWait(driver, 10).until(
-    EC.element_to_be_clickable((By.XPATH, '//button[@aria-label="Add extension"]'))
+    EC.element_to_be_clickable((By.XPATH, '//button[@aria-label="Add to Chrome"]'))
 )
 
 # Нажимаем кнопку "Add extension"
