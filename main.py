@@ -25,7 +25,7 @@ driver.get('https://chrome.google.com/webstore/detail/ilehaonighjijnmpnagapkhpcd
 
 # Ждем, пока кнопка "Add to Chrome" станет доступной
 add_button = WebDriverWait(driver, 10).until(
-    EC.element_to_be_clickable((By.XPATH, '//button[@aria-label="Add to Chrome"]'))
+    EC.element_to_be_clickable((By.XPATH, '//button[@aria-label="Install"]'))
 )
 
 # Нажимаем кнопку "Add to Chrome"
