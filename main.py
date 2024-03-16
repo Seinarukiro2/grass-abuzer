@@ -23,7 +23,7 @@ driver = webdriver.Chrome(options=chrome_options)
 # Открытие ссылки на страницу установки расширения в Chrome Web Store
 driver.get('https://chrome.google.com/webstore/detail/ilehaonighjijnmpnagapkhpcdbhclfg')
 
-add_to_chrome_button = WebDriverWait(driver, 10).until(
+add_to_chrome_button = WebDriverWait(driver, 20).until(
     EC.element_to_be_clickable((By.CSS_SELECTOR, 'button.UywwFc-LgbsSe'))
 )
 
