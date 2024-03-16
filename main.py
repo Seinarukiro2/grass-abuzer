@@ -22,14 +22,13 @@ driver = webdriver.Chrome(options=chrome_options)
 
 # Открытие ссылки на страницу установки расширения в Chrome Web Store
 driver.get('https://chrome.google.com/webstore/detail/ilehaonighjijnmpnagapkhpcdbhclfg')
-print(driver.page_source)
-# Находим кнопку "Install"
-install_button = WebDriverWait(driver, 10).until(
-    EC.element_to_be_clickable((By.CSS_SELECTOR, 'button[jsname="wQO0od"]'))
+
+add_to_chrome_button = WebDriverWait(driver, 10).until(
+    EC.element_to_be_clickable((By.CSS_SELECTOR, 'button.UywwFc-LgbsSe'))
 )
 
-# Нажимаем кнопку "Install"
-install_button.click()
+# Кликаем по кнопке "Add to Chrome"
+add_to_chrome_button.click()
 
 # Ожидаем, пока кнопка "Add extension" станет доступной
 add_extension_button = WebDriverWait(driver, 10).until(
