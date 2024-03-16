@@ -12,7 +12,7 @@ password = 'Callmevampire4464!'
 # Указываем путь к исполняемому файлу браузера Chrome
 chrome_options = Options()
 chrome_options.binary_location = '/usr/bin/google-chrome'  # Замените путь на действительный путь к Chrome на вашей системе
-chrome_options.add_argument('--headless')  # Запуск без GUI (для сервера)
+ # Запуск без GUI (для сервера)
 
 # Установка ChromeDriver с помощью ChromeDriverManager
 ChromeDriverManager().install()
@@ -21,7 +21,7 @@ ChromeDriverManager().install()
 driver = webdriver.Chrome(options=chrome_options)
 
 # Открытие ссылки на страницу установки расширения в Chrome Web Store
-driver.get('https://chrome.google.com/webstore/detail/ilehaonighjijnmpnagapkhpcdbhclfg')
+driver.get('https://chrome.google.com/webstore/detail/grass-extension/ilehaonighjijnmpnagapkhpcdbhclfg?hl=en&authuser=0')
 
 add_to_chrome_button = WebDriverWait(driver, 20).until(
     EC.element_to_be_clickable((By.CSS_SELECTOR, 'button.UywwFc-LgbsSe'))
