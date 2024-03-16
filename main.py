@@ -5,9 +5,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 
-# Указываем ссылку на расширение
-extension_url = 'https://chrome.google.com/webstore/detail/ilehaonighjijnmpnagapkhpcdbhclfg'
-
 # Учетные данные для входа на веб-сайт
 username = 'seinarukiro'
 password = 'Callmevampire4464!'
@@ -23,17 +20,8 @@ ChromeDriverManager().install()
 # Инициализация драйвера браузера
 driver = webdriver.Chrome(options=chrome_options)
 
-# Открытие ссылки на расширение в Chrome Web Store
-driver.get('https://chrome.google.com/webstore/category/extensions')
-
-# Ждем, пока поле поиска станет доступным
-search_box = WebDriverWait(driver, 10).until(
-    EC.presence_of_element_located((By.CSS_SELECTOR, 'input[aria-label="Search Chrome Web Store"]'))
-)
-
-# Вводим ссылку на расширение в поле поиска
-search_box.send_keys(extension_url)
-search_box.submit()
+# Открытие ссылки на страницу установки расширения в Chrome Web Store
+driver.get('https://chrome.google.com/webstore/detail/ilehaonighjijnmpnagapkhpcdbhclfg')
 
 # Ждем, пока кнопка "Add to Chrome" станет доступной
 add_button = WebDriverWait(driver, 10).until(
@@ -43,7 +31,7 @@ add_button = WebDriverWait(driver, 10).until(
 # Нажимаем кнопку "Add to Chrome"
 add_button.click()
 
-# Ждем, пока кнопка "Add extension" станет доступной
+# Ожидаем, пока кнопка "Add extension" станет доступной
 add_extension_button = WebDriverWait(driver, 10).until(
     EC.element_to_be_clickable((By.XPATH, '//button[@aria-label="Add extension"]'))
 )
