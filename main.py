@@ -5,6 +5,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 
+desired_version = "latest"
+
 # Указываем ссылку на расширение
 extension_url = 'https://chrome.google.com/webstore/detail/ilehaonighjijnmpnagapkhpcdbhclfg'
 
@@ -17,7 +19,7 @@ chrome_options = Options()
 chrome_options.add_argument('--headless')  # Запуск без GUI (для сервера)
 
 # Инициализация драйвера браузера с использованием webdriver_manager
-driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
+driver = webdriver.Chrome(ChromeDriverManager(version=desired_version).install(), options=chrome_options)
 
 # Открытие ссылки на расширение в Chrome Web Store
 driver.get('https://chrome.google.com/webstore/category/extensions')
