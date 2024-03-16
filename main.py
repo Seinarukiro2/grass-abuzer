@@ -26,8 +26,12 @@ driver = webdriver.Chrome(options=chrome_options)
 # Открытие ссылки на расширение в Chrome Web Store
 driver.get('https://chrome.google.com/webstore/category/extensions')
 
-# Находим поле поиска и вводим ссылку на расширение
-search_box = driver.find_element_by_css_selector('input[aria-label="Search Chrome Web Store"]')
+# Ждем, пока поле поиска станет доступным
+search_box = WebDriverWait(driver, 10).until(
+    EC.presence_of_element_located((By.CSS_SELECTOR, 'input[aria-label="Search Chrome Web Store"]'))
+)
+
+# Вводим ссылку на расширение в поле поиска
 search_box.send_keys(extension_url)
 search_box.submit()
 
@@ -51,21 +55,21 @@ add_extension_button.click()
 WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, 'extension_id')))
 
 # Находим кнопку "LOGIN" на расширении и кликаем по ней
-login_button = driver.find_element_by_id('login_button')
+login_button = driver.find_element(By.ID, 'login_button')
 login_button.click()
 
 # Ожидаем переадресации на веб-сайт
 WebDriverWait(driver, 10).until(EC.url_contains('https://app.getgrass.io/'))
 
 # Вводим учетные данные на веб-сайте
-username_input = driver.find_element_by_id('field-:r0:')
-password_input = driver.find_element_by_id('field-:r1:')
+username_input = driver.find_element(By.ID, 'field-:r0:')
+password_input = driver.find_element(By.ID, 'field-:r1:')
 
 username_input.send_keys(username)
 password_input.send_keys(password)
 
 # Нажимаем кнопку "ACCESS MY ACCOUNT"
-access_button = driver.find_element_by_xpath('//button[contains(text(), "ACCESS MY ACCOUNT")]')
+access_button = driver.find_element(By.XPATH, '//button[contains(text(), "ACCESS MY ACCOUNT")]')
 access_button.click()
 
 # Закрываем браузер
