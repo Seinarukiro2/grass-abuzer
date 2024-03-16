@@ -16,12 +16,10 @@ password = 'Callmevampire4464!'
 # Указываем путь к исполняемому файлу браузера Chrome
 chrome_options = Options()
 chrome_options.binary_location = '/usr/bin/google-chrome'  # Замените путь на действительный путь к Chrome на вашей системе
-
-# Опции для браузера Chrome
 chrome_options.add_argument('--headless')  # Запуск без GUI (для сервера)
 
 # Инициализация драйвера браузера с использованием webdriver_manager
-driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
+driver = webdriver.Chrome(ChromeDriverManager().install())
 
 # Открытие ссылки на расширение в Chrome Web Store
 driver.get('https://chrome.google.com/webstore/category/extensions')
